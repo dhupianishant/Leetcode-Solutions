@@ -1,13 +1,18 @@
 class Solution:
-  def isPalindrome(self, x: int) -> bool:
-    if x < 0:
-      return False
+    def isPalindrome(self, x: int) -> bool:
+        
+        # negatives are not palindromes
+        if x < 0:
+            return False
 
-    rev = 0
-    y = x
+        reversedNum = 0
+        y = x
 
-    while y:
-      rev = rev * 10 + y % 10
-      y //= 10
+        while y:
+            # multiply the reversed number by 10 and add the last digit of y
+            reversedNum = reversedNum * 10 + y % 10
+            # remove the last digit from y
+            y //= 10
 
-    return rev == x
+        # returns true if palindrome otherwise false
+        return reversedNum == x
